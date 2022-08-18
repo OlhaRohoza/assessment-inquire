@@ -14,8 +14,8 @@ const Posts = () => {
     }
 
     useEffect(() => {
-        fetchData()
-    }, [posts])
+        fetchData();
+    }, [])
 
 
     return (

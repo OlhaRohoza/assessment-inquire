@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useParams } from "react-router-dom";
 import axios from 'axios';
 
-const CommentForm = ({ id }) => {
+const CommentForm = () => {
+
+    const params = useParams();
 
     const [comment, setComment] = useState({
-        postId: id,
-        body: ''
+        'postId': Number(params.id),
+        'body': ''
     });
 
     const handleChange = (e) => {
@@ -21,8 +24,8 @@ const CommentForm = ({ id }) => {
         e.preventDefault();
         console.log(comment);
 
-        const url = `https://bloggy-api.herokuapp.com/comments`;
-        await axios.post(url, comment);
+        const response = await axios.post('https://bloggy-api.herokuapp.com/comments', comment);
+        console.log(response);
     }
 
 

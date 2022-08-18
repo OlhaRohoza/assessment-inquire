@@ -10,7 +10,7 @@ import 'react-confirm-alert/src/react-confirm-alert.css';
 const Post = () => {
 
     const [post, setPost] = useState([]);
-    const [comments, setComments] = useState([]);
+    // for editing post if true there is PostForm, if false there is a displayed post
     const [editPost, setEditPost] = useState(false);
 
     const params = useParams();
@@ -21,17 +21,14 @@ const Post = () => {
         const response = await fetch(url);
         const data = await response.json();
         setPost(data);
-
-        if (data.comments && data.comments.length >= 1) {
-            setComments(data.comments);
-        }
     }
 
     useEffect(() => {
         fetchData()
-    }, [post, comments])
+    }, [post, editPost])
 
     const handleClick = () => {
+        // alert confirmations for deleting the post
         confirmAlert({
             title: 'Confirm to delete',
             message: 'Are you sure to delete this?',
@@ -77,18 +74,18 @@ const Post = () => {
             <hr />
             <div className="comments__container">
                 {
-                    comments.length > 0
+                    post.comments && post.comments.length > 0
                         ? <>
                             <h2>Comments:</h2>
                             <div className="comment__conteiner">
-                                {comments.map(comment => (
+                                {post.comments.map(comment => (
                                     <p key={comment.id}>{comment.body}</p>
 
                                 ))}</div></>
                         : <p>No comments</p>
                 }
                 <hr />
-                <CommentForm id={post.id} />
+                <CommentForm />
             </div>
         </div>
     )
