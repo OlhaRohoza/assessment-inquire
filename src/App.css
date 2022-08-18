@@ -1,38 +1,73 @@
-.App {
-  text-align: center;
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  height: 35px;
+  border-bottom: 0.1em solid silver;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navigation a {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navigation a:hover {
+  color: green;
+  text-decoration: underline;
+  /* font-style: heavy; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h1 {
+  color: green;
+}
+
+.posts__container_post {
+  padding: 0.25em;
+}
+
+.posts__container_post:hover {
+  cursor: pointer;
+  font-style: italic;
+  color: silver;
+}
+
+.post-form__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+  width: 400px;
+  height: 500px;
+  margin: 1em auto;
+  padding: 1em;
+  border: 2px solid silver;
+}
+
+.post__container_part {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25em 0;
+}
+
+button {
+  margin: 1em 0;
+  background-color: green;
   color: white;
+  padding: 0.5em 1em;
+  text-transform: uppercase;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
+.post__actions {
+  display: flex;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.comment__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment__form button {
+  width: 150px;
+  align-self: flex-end;
 }
