@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import axios from 'axios';
 
-const CommentForm = (props) => {
+const CommentForm = ({ id }) => {
 
     const [comment, setComment] = useState({
-        postId: props.id,
+        postId: id,
         body: ''
     });
 
